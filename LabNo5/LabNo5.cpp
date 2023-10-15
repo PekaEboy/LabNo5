@@ -6,7 +6,17 @@
 using namespace std;
 int main()
 {
-    cout << "Hello World!\n";
+	setlocale(LC_ALL, "ru");
+	int n, m, a;
+	cout << "Введите размер строки: ";
+	cin >> n;
+	cout << "Введите размер столбцов: ";
+	cin >> m;
+	int A[100][100];
+	cout << "Введите число a: ";
+	cin >> a;
+	system("pause");
+	return 0;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
