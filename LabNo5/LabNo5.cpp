@@ -2,20 +2,55 @@
 //
 
 #include <iostream>
-
+#include <iomanip>
 using namespace std;
 int main()
 {
 	setlocale(LC_ALL, "ru");
-	int n, m, a;
-	cout << "Введите размер строки: ";
-	cin >> n;
-	cout << "Введите размер столбцов: ";
+	int m,n;
+	int a[100][100];
+	int val;
+	cout << "Введите начальное число: ";
+	cin >> val;
+	cout << "Введите количесто строк: ";
 	cin >> m;
-	int A[100][100];
-	cout << "Введите число a: ";
-	cin >> a;
-	system("pause");
+	cout << "Введите количесто столбцов: ";
+	cin >> n;
+	int mt = m;
+	int nt = n;
+	int k = 0, l = 0;
+	while (k < m && l < n)
+	{
+		for (int i = l; i < n; ++i)
+			a[k][i] = val++;
+
+		k++;
+
+		for (int i = k; i < m; ++i)
+			a[i][n - 1] = val++;
+		n--;
+
+		if (k < m)
+		{
+			for (int i = n - 1; i >= l; --i)
+				a[m - 1][i] = val++;
+			m--;
+		}
+
+		if (l < n)
+		{
+			for (int i = m - 1; i >= k; --i)
+				a[i][l] = val++;
+			l++;
+		}
+	}
+
+	for (int i = 0; i < mt; i++)
+	{
+		for (int j = 0; j < nt; j++)
+			cout << setw(4) << a[i][j] << " ";
+		cout << endl;
+	}
 	return 0;
 }
 
